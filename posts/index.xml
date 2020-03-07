@@ -1,24 +1,241 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on 瓶子的博客</title>
-    <link>https://pingerl.github.io/posts/</link>
-    <description>Recent content in Posts on 瓶子的博客</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>ch-Hans</language>
-    <lastBuildDate>Sat, 07 Mar 2020 14:22:32 +0800</lastBuildDate>
-    
-	<atom:link href="https://pingerl.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>My First Post</title>
-      <link>https://pingerl.github.io/posts/my-first-post/</link>
-      <pubDate>Sat, 07 Mar 2020 14:22:32 +0800</pubDate>
-      
-      <guid>https://pingerl.github.io/posts/my-first-post/</guid>
-      <description>第一次写博客，请多多指教</description>
-    </item>
-    
-  </channel>
+	<channel>
+		<title>Posts on 小瓶子的~</title>
+		<link>https://example.com/posts/</link>
+		<description>Recent content in Posts on 小瓶子的~</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+		<lastBuildDate>Sat, 07 Mar 2020 21:07:34 +0800</lastBuildDate>
+		<atom:link href="https://example.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Reflows and Repaints</title>
+			<link>https://example.com/posts/reflows/</link>
+			<pubDate>Sat, 07 Mar 2020 21:07:34 +0800</pubDate>
+			
+			<guid>https://example.com/posts/reflows/</guid>
+			<description>浏览器渲染机制   解析代码：HTML 代码解析为 DOM，CSS 代码解析为 CSSOM（CSS Object Model）。
+  对象合成：将 DOM 和 CSSOM 合成一棵渲染树（render tree）。
+  布局：计算出渲染树的布局（layout）。
+  绘制：将渲染树绘制到屏幕。
+  以上四步并非严格按顺序执行，往往第一步还没完成，第二步和第三步就已经开始了。所以，会看到这种情况：网页的 HTML 代码还没下载完，但浏览器已经显示出内容了。
+重绘和重流（Repaints and reflows） 渲染树转换为网页布局，称为“布局流”（flow）；布局显示到页面的这个过程，称为“绘制”（paint）。它们都具有阻塞效应，并且会耗费很多时间和计算资源。
+一个页面初始化的时候至少伴随着一次布局和绘制（除非你的页面什么都没有）。之后，改变用于构建渲染树的输入信息会导致重流或者重绘，或者两者都会改变：
+  DOM元素的位置、大小发生改变，即网页的布局发生了改变，浏览器根据计算结果重新将其放到它该有的位置，这就叫做重流
+  DOM元素的位置、大小没有发生改变，有可能是因为节点的几何属性发生了变化，或者是因为样式发生了变化，比如说改变了背景颜色。这个屏幕更新称为重绘
+  重绘和重流的代价很高，会损害用户体验，会消耗很多时间和计算资源，使UI界面迟缓，即页面加载慢、卡顿。重流和重绘并不一定一起发生，重流必然导致重绘，重绘不一定需要重流
+什么会导致重流或者重绘呢？ 任何改变用于构建渲染树的输入信息的操作都能导致重流或者重绘，例如：
+  添加、移除、更新DOM节点
+  使用display: none来隐藏一个DOM节点会导致重流和重绘，visibility: hidden则只会造成重绘，因为没有几何改变。
+  DOM节点在页面上移动、做动画效果时
+  添加样式表，调整样式属性
+  用户操作如：设置了鼠标悬停（a:hover）效果、页面滚动、在输入框中输入文本、改变窗口大小等等。
+  var bstyle = document.body.style; // cache bstyle.</description>
+			<content type="html"><![CDATA[<h4 id="heading">浏览器渲染机制</h4>
+<ol>
+<li>
+<p>解析代码：HTML 代码解析为 DOM，CSS 代码解析为 CSSOM（CSS Object Model）。</p>
+</li>
+<li>
+<p>对象合成：将 DOM 和 CSSOM 合成一棵渲染树（render tree）。</p>
+</li>
+<li>
+<p>布局：计算出渲染树的布局（layout）。</p>
+</li>
+<li>
+<p>绘制：将渲染树绘制到屏幕。</p>
+</li>
+</ol>
+<p>以上四步并非严格按顺序执行，往往第一步还没完成，第二步和第三步就已经开始了。所以，会看到这种情况：网页的 HTML 代码还没下载完，但浏览器已经显示出内容了。</p>
+<h4 id="repaints-and-reflows">重绘和重流（Repaints and reflows）</h4>
+<p>渲染树转换为网页布局，称为“布局流”（flow）；布局显示到页面的这个过程，称为“绘制”（paint）。它们都具有阻塞效应，并且会耗费很多时间和计算资源。</p>
+<p>一个页面初始化的时候至少伴随着一次布局和绘制（除非你的页面什么都没有）。之后，改变用于构建渲染树的输入信息会导致重流或者重绘，或者两者都会改变：</p>
+<ol>
+<li>
+<p>DOM元素的位置、大小发生改变，即网页的布局发生了改变，浏览器根据计算结果重新将其放到它该有的位置，这就叫做<strong>重流</strong></p>
+</li>
+<li>
+<p>DOM元素的位置、大小没有发生改变，有可能是因为节点的几何属性发生了变化，或者是因为样式发生了变化，比如说改变了背景颜色。这个屏幕更新称为<strong>重绘</strong></p>
+</li>
+</ol>
+<p>重绘和重流的代价很高，会损害用户体验，会消耗很多时间和计算资源，使UI界面迟缓，即页面加载慢、卡顿。<strong>重流和重绘并不一定一起发生，重流必然导致重绘，重绘不一定需要重流</strong></p>
+<h4 id="heading1">什么会导致重流或者重绘呢？</h4>
+<p>任何改变用于构建渲染树的输入信息的操作都能导致重流或者重绘，例如：</p>
+<ul>
+<li>
+<p>添加、移除、更新DOM节点</p>
+</li>
+<li>
+<p>使用<code>display: none</code>来隐藏一个DOM节点会导致重流和重绘，<code>visibility: hidden</code>则只会造成重绘，因为没有几何改变。</p>
+</li>
+<li>
+<p>DOM节点在页面上移动、做动画效果时</p>
+</li>
+<li>
+<p>添加样式表，调整样式属性</p>
+</li>
+<li>
+<p>用户操作如：设置了鼠标悬停（<code>a:hover</code>）效果、页面滚动、在输入框中输入文本、改变窗口大小等等。</p>
+</li>
+</ul>
+<pre><code>var bstyle = document.body.style; // cache
+ 
+bstyle.padding = &quot;20px&quot;; // reflow, repaint
+bstyle.border = &quot;10px solid red&quot;; // another reflow and a repaint
+ 
+bstyle.color = &quot;blue&quot;; // repaint only, no dimensions changed
+bstyle.backgroundColor = &quot;#fad&quot;; //repaint
+ 
+bstyle.fontSize = &quot;2em&quot;; // reflow, repaint
+ 
+// new DOM element - reflow, repaint
+document.body.appendChild(document.createTextNode('dude!'));
+</code></pre><p>有些回流可能比其他回流更昂贵。想象一下渲染树——如果在树的下面摆弄一个节点（主体的一个直接后代），那么可能不会让许多其他节点失效。但是，当在页面顶部生成一个div，导致页面上的其他部分全部往下移，这听起来代价就十分昂贵了。</p>
+<h4 id="heading2">浏览器是智能的</h4>
+<p>由于与渲染树更改关联的重流和重绘代价高，所以浏览器的目标是减少负面影响。一种策略是干脆不做这项工，或者至少不是现在。浏览器将设置脚本所需更改的队列，并分批执行。通过这种方式，将组合每个更改都需要重流的几个更改，达到只做一次重流。浏览器可以将更改添加到队列中，然后在经过一定时间或达到一定数量的更改后刷新队列（<strong>类似节流函数</strong>）。</p>
+<p>但有时脚本可能会阻止浏览器优化reflows，并导致它刷新队列并执行所有批量更改。这会发生在请求样式信息时，例如</p>
+<ol>
+<li>
+<p><code>offsetTop</code>, <code>offsetLeft</code>, <code>offsetWidth</code>, <code>offsetHeight</code></p>
+</li>
+<li>
+<p><code>scrollTop</code>、<code>scrollLeft</code>、<code>scrollWidth</code>、<code>scrollHeight</code></p>
+</li>
+<li>
+<p><code>clientTop</code>、<code>clientLeft</code>、<code>clientWidth</code>、<code>clientHeight</code></p>
+</li>
+<li>
+<p><code>getComputedStyle()</code>, or <code>currentStyle</code> in IE</p>
+</li>
+</ol>
+<p>以上所有这些本质上都是在请求关于节点的样式信息，并且无论何时执行此操作，浏览器都必须提供最新的值。为了做到这一点，它需要应用所有更改，刷新队列，执行重流操作。</p>
+<p>例如，快速连续地设置和获取样式(在循环中)不是一个好主意，像:</p>
+<p><code>el.style.left = el.offsetLeft + 10 + &quot;px&quot;;</code></p>
+<h4 id="heading3">最小化重绘和重流</h4>
+<p>作为开发者，应该尽量设法降低重绘的次数和成本。比如，尽量不要变动高层的 DOM 元素，而以底层 DOM 元素的变动代替；再比如，重绘<code>table</code>布局和<code>flex</code>布局，开销都会比较大。</p>
+<ul>
+<li>不要一条一条的去修改样式，为了完整性和可维护性，在静态样式中应该去更改类名而不是样式。若样式是动态的，则编辑<code>cssText</code>属性而不是对元素及其样式属性进行每一点更改。</li>
+</ul>
+<pre><code>//不好的写法
+var left = 10, top = 10;
+el.style.left = left + &quot;px&quot;;
+el.style.top = top + &quot;px&quot;;
+
+//更好的写法,先预定好css的class,后修改DOM的className
+&lt;style&gt;
+    .theclassname {
+        left: 10px;
+        top : 10px;
+    }
+&lt;/style&gt;
+el.className += &quot;theclassname&quot;
+</code></pre><ul>
+<li>
+<p>批量DOM更改并“脱机”执行:</p>
+<ul>
+<li>
+<p>使用<code>documentFragment</code>来保存临时更改</p>
+</li>
+<li>
+<p>克隆要更新的节点，处理克隆副本，然后用更新的克隆交换原始节点</p>
+</li>
+<li>
+<p>先设置<code>DOM</code>的<code>display</code>为<code>none</code> (<code>display: none</code>,此时有一次repaint)，然后想怎么修改这个DOM都可以，比如修改个100次，最后再把<code>display</code>属性设置回来，显现DOM节点（这样，虽然操作了100次，但是只有两次reflows）</p>
+</li>
+</ul>
+</li>
+<li>
+<p>不要把 <code>DOM</code> 节点的属性值放在一个循环里当成循环里的变量。不然这会导致大量地读写这个结点的属性。如果需要处理一个计算值，将其缓存到一个本地变量并处理本地副本。</p>
+</li>
+</ul>
+<pre><code>//不好的写法,DOM节点属性值每循环一次就要修改一次，就要reflow一次
+for(big;loop;here){
+    el.style.left = el.offsetLeft + 10 + &quot;px&quot;;
+    el.style.top = el.offsetTop + 10 + &quot;px&quot;;
+}
+
+//更好的写法
+var left = el.offsetLeft,
+    top = el.offsetTop,
+    esty = el.style;
+for(big;loop;here){
+    left += 10;
+    top + = 10;
+    esty.left = left + &quot;px&quot;;
+    esty.top = top + &quot;px&quot;;
+}
+</code></pre><ul>
+<li>
+<p>一般来说，考虑一下渲染树，以及更改后需要重新渲染部分的大小。例如，为动画的 <code>HTML</code> 元件使用 <code>fixed</code> 或 <code>absoult</code> 的 <code>position</code>，那么修改他们的 <code>CSS</code> 是会大大减小 <code>reflow</code> 。</p>
+</li>
+<li>
+<p>使用<code>window.requestAnimationFrame()</code>，因为它可以把代码推迟到下一次重流时执行，而不是立即要求页面重流。</p>
+</li>
+</ul>
+<pre><code>// 重绘代价高
+function doubleHeight(element) {
+  var currentHeight = element.clientHeight;
+  element.style.height = (currentHeight * 2) + 'px';
+}
+
+all_my_elements.forEach(doubleHeight);
+
+// 重绘代价低
+function doubleHeight(element) {
+  var currentHeight = element.clientHeight;
+
+ //使用了window.requestAnimationFrame()
+  window.requestAnimationFrame(function () {
+    element.style.height = (currentHeight * 2) + 'px';
+  });
+}
+
+all_my_elements.forEach(doubleHeight);
+
+/*上面的第一段代码，每读一次 DOM，就写入新的值，会造成不停的重排和重流。
+第二段代码把所有的写操作，都累积在一起，从而 DOM 代码变动的代价就最小化了。
+*/
+</code></pre><p>参考链接：</p>
+<p>[1] <a href="http://javascript.ruanyifeng.com/bom/engine.html">阮一峰 : JavaScript标准参考教程</a></p>
+<p>[2] <a href="http://www.phpied.com/rendering-repaint-reflowrelayout-restyle/">Rendering: repaint, reflow/relayout, restyle</a></p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>一文读懂 offsetHeight、clientHeight、scrollHeight.....</title>
+			<link>https://example.com/posts/my-first-post/</link>
+			<pubDate>Thu, 27 Feb 2020 14:22:32 +0800</pubDate>
+			
+			<guid>https://example.com/posts/my-first-post/</guid>
+			<description>一、 offset相关  offsetTop 和 offsetLeft 只读属性，为与定位的最近的父级元素的距离，offsetParent用于获取定位的父级元素。若没有指定，则为body ，offsetLeft指的是元素左侧偏移offsetParent的距离，offsetTop指的是上侧偏移的距离 offsetHeight 和offsetWidth 只读属性，返回的是元素的整体高度或宽度，包括元素的边框、内边距和滚动条(如果有的话 ) 即：offsetHeight = height + padding + border   二、client 相关 clientHeight和clientWidth包括padding，但不包括border, margin和滚动条 即：clientHeight = height + padding 三、scroll 相关  scrollHeight 和 scrollWidth 返回元素内容的整体尺寸，包括元素看不见的部分（需要滚动才能看见的）。返回值包括padding，但不包括margin和border ⚠️注意：为元素内容的高度，而不是元素的高度 scrollTop和scrollLeft 如果元素不能被滚动，则为0。   四、判定元素是否滚动到底 如果元素滚动到底，下面等式返回true，没有则返回false. element.scrollHeight - element.scrollTop === element.clientHeight</description>
+			<content type="html"><![CDATA[<h4 id="-offset">一、 offset相关</h4>
+<ol>
+<li><code>offsetTop</code> 和 <code>offsetLeft</code>
+只读属性，为与<strong>定位的最近的父级元素</strong>的距离，<code>offsetParent</code>用于获取定位的父级元素。若没有指定，则为<code>body </code>，<code>offsetLeft</code>指的是元素左侧偏移<code>offsetParent</code>的距离，<code>offsetTop</code>指的是上侧偏移的距离</li>
+<li><code>offsetHeight</code> 和<code>offsetWidth</code>
+只读属性，返回的是元素的整体高度或宽度，包括元素的<strong>边框、内边距和滚动条(如果有的话 )</strong>
+即：<code>offsetHeight = height + padding + border</code>
+<img src="https://upload-images.jianshu.io/upload_images/14422192-e1e7c485ddfba871.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="offset.png"></li>
+</ol>
+<h4 id="client-">二、client 相关</h4>
+<p><code>clientHeight</code>和<code>clientWidth</code>包括<strong>padding，但不包括border, margin和滚动条</strong>
+即：<code>clientHeight = height + padding</code>
+<img src="https://upload-images.jianshu.io/upload_images/14422192-2c7f4e985cbeb3ef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="client.png"></p>
+<h4 id="scroll-">三、scroll 相关</h4>
+<ol>
+<li><code>scrollHeight</code> 和 <code>scrollWidth</code>
+返回<strong>元素内容</strong>的整体尺寸，包括元素看不见的部分（需要滚动才能看见的）。返回值包括<code>padding</code>，但不包括<code>margin</code>和<code>border</code>
+<strong>⚠️注意：为元素内容的高度，而不是元素的高度</strong></li>
+<li><code>scrollTop</code>和<code>scrollLeft</code>
+如果元素不能被滚动，则为0。
+<img src="https://upload-images.jianshu.io/upload_images/14422192-65f843640678452a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="scroll.png"></li>
+</ol>
+<h4 id="heading">四、判定元素是否滚动到底</h4>
+<p>如果元素滚动到底，下面等式返回true，没有则返回false.
+<code>element.scrollHeight - element.scrollTop === element.clientHeight</code></p>
+]]></content>
+		</item>
+		
+	</channel>
 </rss>

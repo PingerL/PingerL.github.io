@@ -1,23 +1,49 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>瓶子的博客</title>
-    <link>https://pingerl.github.io/</link>
-    <description>Recent content on 瓶子的博客</description>
+    <title>小瓶子的~</title>
+    <link>https://example.com/</link>
+    <description>Recent content on 小瓶子的~</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ch-Hans</language>
-    <lastBuildDate>Sat, 07 Mar 2020 14:22:32 +0800</lastBuildDate>
+    <language>en-us</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Sat, 07 Mar 2020 21:07:34 +0800</lastBuildDate>
     
-	<atom:link href="https://pingerl.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>My First Post</title>
-      <link>https://pingerl.github.io/posts/my-first-post/</link>
-      <pubDate>Sat, 07 Mar 2020 14:22:32 +0800</pubDate>
+      <title>Reflows and Repaints</title>
+      <link>https://example.com/posts/reflows/</link>
+      <pubDate>Sat, 07 Mar 2020 21:07:34 +0800</pubDate>
       
-      <guid>https://pingerl.github.io/posts/my-first-post/</guid>
-      <description>第一次写博客，请多多指教</description>
+      <guid>https://example.com/posts/reflows/</guid>
+      <description>浏览器渲染机制   解析代码：HTML 代码解析为 DOM，CSS 代码解析为 CSSOM（CSS Object Model）。
+  对象合成：将 DOM 和 CSSOM 合成一棵渲染树（render tree）。
+  布局：计算出渲染树的布局（layout）。
+  绘制：将渲染树绘制到屏幕。
+  以上四步并非严格按顺序执行，往往第一步还没完成，第二步和第三步就已经开始了。所以，会看到这种情况：网页的 HTML 代码还没下载完，但浏览器已经显示出内容了。
+重绘和重流（Repaints and reflows） 渲染树转换为网页布局，称为“布局流”（flow）；布局显示到页面的这个过程，称为“绘制”（paint）。它们都具有阻塞效应，并且会耗费很多时间和计算资源。
+一个页面初始化的时候至少伴随着一次布局和绘制（除非你的页面什么都没有）。之后，改变用于构建渲染树的输入信息会导致重流或者重绘，或者两者都会改变：
+  DOM元素的位置、大小发生改变，即网页的布局发生了改变，浏览器根据计算结果重新将其放到它该有的位置，这就叫做重流
+  DOM元素的位置、大小没有发生改变，有可能是因为节点的几何属性发生了变化，或者是因为样式发生了变化，比如说改变了背景颜色。这个屏幕更新称为重绘
+  重绘和重流的代价很高，会损害用户体验，会消耗很多时间和计算资源，使UI界面迟缓，即页面加载慢、卡顿。重流和重绘并不一定一起发生，重流必然导致重绘，重绘不一定需要重流
+什么会导致重流或者重绘呢？ 任何改变用于构建渲染树的输入信息的操作都能导致重流或者重绘，例如：
+  添加、移除、更新DOM节点
+  使用display: none来隐藏一个DOM节点会导致重流和重绘，visibility: hidden则只会造成重绘，因为没有几何改变。
+  DOM节点在页面上移动、做动画效果时
+  添加样式表，调整样式属性
+  用户操作如：设置了鼠标悬停（a:hover）效果、页面滚动、在输入框中输入文本、改变窗口大小等等。
+  var bstyle = document.body.style; // cache bstyle.</description>
+    </item>
+    
+    <item>
+      <title>一文读懂 offsetHeight、clientHeight、scrollHeight.....</title>
+      <link>https://example.com/posts/my-first-post/</link>
+      <pubDate>Thu, 27 Feb 2020 14:22:32 +0800</pubDate>
+      
+      <guid>https://example.com/posts/my-first-post/</guid>
+      <description>一、 offset相关  offsetTop 和 offsetLeft 只读属性，为与定位的最近的父级元素的距离，offsetParent用于获取定位的父级元素。若没有指定，则为body ，offsetLeft指的是元素左侧偏移offsetParent的距离，offsetTop指的是上侧偏移的距离 offsetHeight 和offsetWidth 只读属性，返回的是元素的整体高度或宽度，包括元素的边框、内边距和滚动条(如果有的话 ) 即：offsetHeight = height + padding + border   二、client 相关 clientHeight和clientWidth包括padding，但不包括border, margin和滚动条 即：clientHeight = height + padding 三、scroll 相关  scrollHeight 和 scrollWidth 返回元素内容的整体尺寸，包括元素看不见的部分（需要滚动才能看见的）。返回值包括padding，但不包括margin和border ⚠️注意：为元素内容的高度，而不是元素的高度 scrollTop和scrollLeft 如果元素不能被滚动，则为0。   四、判定元素是否滚动到底 如果元素滚动到底，下面等式返回true，没有则返回false. element.scrollHeight - element.scrollTop === element.clientHeight</description>
     </item>
     
   </channel>
